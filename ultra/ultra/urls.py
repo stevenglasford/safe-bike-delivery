@@ -15,16 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .homeView import home_view
-from .customerView import customer_view
-from .managerView import manager_view
-from .riderView import rider_view
+from .home.homeView import home_view
+from .customer.customerView import customer_view
+from .manager.managerView import manager_view
+from .rider.riderView import rider_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', home_view, name='home'),
-    path('ultra/', include('ultra.urls')),
-    path('ultra/manager/', include('manager.urls')),
-    path('ultra/customer/', include('customer.urls')),
-    path('ultra/rider/', include('rider.urls'))
+    path('', home_view),
+    # path('ultra/', include('ultra.urls')),
+    path('ultra/manager/', manager_view),
+    path('ultra/customer/', customer_view),
+    path('ultra/rider/', rider_view)
 ]
