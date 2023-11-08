@@ -1,6 +1,5 @@
-# your_django_app/views.py
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def home_view(request):
-    # Your view logic here
-    return HttpResponse('Hello, world!')
+def my_new_view(request):
+    context = {'ultraTitle': "Hello, this is my new view!"}
+    return render(request, 'home.template.html', context)
